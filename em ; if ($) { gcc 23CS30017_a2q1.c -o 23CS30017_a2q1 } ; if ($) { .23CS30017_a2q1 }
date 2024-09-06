@@ -1,0 +1,31 @@
+warning: in the working copy of 'algo3rdsem/23CS30017_a2q2.c', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/algo3rdsem/23CS30017_a2q2.c b/algo3rdsem/23CS30017_a2q2.c[m
+[1mindex 0a71278..0dfbbb8 100644[m
+[1m--- a/algo3rdsem/23CS30017_a2q2.c[m
+[1m+++ b/algo3rdsem/23CS30017_a2q2.c[m
+[36m@@ -14,18 +14,20 @@[m [mint min(int a, int b){[m
+ }[m
+ //checking if the required condition is true[m
+ int min2(int bus[], int n, int k, int l, int r){[m
+[32m+[m[32m    int cnt = 0, mid = (l+r)/2;[m
+     for (int i = 0; i < k; i++)[m
+     {[m
+[31m-        if(bus[i]<=(l+r)/2) return 1;[m
+[31m-        else return 0;[m
+[32m+[m[32m        cnt+=mid/bus[i];[m
+     }[m
+[32m+[m[32m    if(cnt>=n) return 1;[m
+[32m+[m[32m    else return 0;[m
+ }[m
+ [m
+ int mintime(int bus[], int n, int k, int l, int r){[m
+     // minim = min(minim, r);[m
+[31m-    if(r-l<=2) return r;[m
+[31m-    if(min2(bus, n, k, l, r)) mintime(bus, n/2, k, l, (l+r)/2);     //binary search by checkng if second minimum is less than half the time in which case itll be in the first half[m
+[31m-    else mintime(bus, n-n/2, k, ((l+r)/2)+1,r);[m
+[32m+[m[32m    if(r-l<1) return r;[m
+[32m+[m[32m    if(min2(bus, n, k, l, r)) mintime(bus, n, k, l, (l+r)/2);     //binary search by checkng if sum of trips till middle time exceeds or is equal to the trips required[m
+[32m+[m[32m    else mintime(bus, n, k, ((l+r)/2)+1,r);[m
+ }[m
+ //function to return minimum value of an array[m
+ int minar(int bus[], int k){[m

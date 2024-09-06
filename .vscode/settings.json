@@ -8,6 +8,7 @@
         "semaphore": "cpp",
         "valarray": "cpp",
         "bitset": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "vector": "cpp"
     }
 }
